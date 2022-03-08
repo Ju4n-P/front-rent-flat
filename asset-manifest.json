@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/front-rent-flat/static/css/main.a33a1d9f.css",
+    "main.js": "/front-rent-flat/static/js/main.9d40376e.js",
+    "index.html": "/front-rent-flat/index.html",
+    "main.a33a1d9f.css.map": "/front-rent-flat/static/css/main.a33a1d9f.css.map",
+    "main.9d40376e.js.map": "/front-rent-flat/static/js/main.9d40376e.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a33a1d9f.css",
+    "static/js/main.9d40376e.js"
+  ]
+}
