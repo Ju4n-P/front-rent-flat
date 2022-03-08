@@ -6,6 +6,8 @@ import Post from "./pages/post/Post"
 import ListOfComponents from "./components/listOfCompnents/ListOfComponents";
 import "./styles/index.scss";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Footer from "./components/footer/footer"
+
 
 function App() {
   return (
@@ -18,6 +20,7 @@ function App() {
             <Route path="/post" element={<Post />} />
             <Route path="/post/:id" element={<ListOfComponents />} />
           </Routes>
+      <Footer/>
     </BrowserRouter>
   );
 }
