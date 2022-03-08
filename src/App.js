@@ -1,4 +1,4 @@
-import Navbar from "./components/navbar/Navbar";
+import NavbarOld from "./components/navbar-old/NavbarOld";
 import Home from "./pages/home/Home";
 import Users from "./pages/users/Users";
 import User from "./pages/user/User";
@@ -10,7 +10,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 function App() {
   return (
     <BrowserRouter>
-      <Navbar/>
+      <NavbarOld/>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/users" element={<Users />} />
