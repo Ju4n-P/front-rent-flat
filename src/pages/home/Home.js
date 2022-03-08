@@ -1,7 +1,7 @@
 import React from "react";
 import "./home.scss";
 // import { useState } from 'react';
-import Toggle from "../../compnents/toggle/Toggle";
+import Toggle from "../../components/toggle/Toggle";
 
 const Home = () => {
   return (

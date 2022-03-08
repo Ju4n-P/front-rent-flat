@@ -1,7 +1,7 @@
 import React from "react";
 import {Link} from "react-router-dom";
 
-const Layout = (props) => {
+const Navbar = (props) => {
   return (
     <div>
       <ul>
@@ -14,4 +14,4 @@ const Layout = (props) => {
   );
 };
 
-export default Layout;
+export default Navbar;
