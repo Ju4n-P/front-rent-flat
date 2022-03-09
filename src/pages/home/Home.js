@@ -26,7 +26,7 @@ const Home = () => {
         <h3 className="text-lg font-semibold">
           Les dernières annonces en ligne :
         </h3>
-        <AddsList urlToFetch="https://api-rails-immocoin.herokuapp.com/articles" />
+        <AddsList urlToFetch="https://api-rails-immocoin.herokuapp.com/articles/" />
       </div>
     </>
   );
