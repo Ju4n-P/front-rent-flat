@@ -1,5 +1,6 @@
-.Home{
-
-    background-color: bisque;
-    border: solid 1px;
+.hero-section {
+  // background-color: bisque;
+  // border: solid 1px;
+  background-image: url("../../assets/images/many-colorful-doors.jpg");
+  @apply bg-contain;
 }
