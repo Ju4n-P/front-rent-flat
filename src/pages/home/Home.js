@@ -7,9 +7,9 @@ import "./home.scss";
 const Home = () => {
   return (
     <>
-      <div className="Home flex flex-col items-center p-16">
-        <div className="flex flex-col items-center w-[70%] bg-white">
-          <h1 className="text-3xl text-yellow-500 text-center">
+      <div className="hero-section flex flex-col items-center p-16">
+        <div className="flex flex-col items-center w-[70%] bg-black/70 p-12">
+          <h1 className="text-3xl text-white text-center">
             <span className="font-bold text-4xl">Bienvenue sur ImmoFind,</span>{" "}
             <br />
             le meilleur outil de prise de contact de particulier à particulier
@@ -20,7 +20,7 @@ const Home = () => {
         {/* <Toggle /> */}
       </div>
 
-      <div className="p-4">
+      <div className="p-12">
         <h3 className="text-lg">Les dernières annonces en ligne :</h3>
         <AddsList urlToFetch="http://localhost:3000/articles/" />
       </div>
