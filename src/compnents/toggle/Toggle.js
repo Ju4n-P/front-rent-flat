@@ -15,7 +15,7 @@ const Toggle = () => {
                 <button onClick={changeState}>Change state</button>
             </div>
         );
-    } else if(toggle == false){
+    } else if(toggle === false){
         return (
             <div className="Toggle">
                 <h3>Hello from toggle component</h3>
