@@ -22,7 +22,7 @@ const Home = () => {
 
       <div className="p-4">
         <h3 className="text-lg">Les dernières annonces en ligne :</h3>
-        <AddsList />
+        <AddsList urlToFetch="http://localhost:3000/articles/" />
       </div>
     </>
   );

@@ -15,18 +15,18 @@ function AddsList(props) {
   }, []);
 
   return (
-    <div>
+    <ul>
       {status === "Loading" && <div>En cours de chargement !</div>}
       {status === "Error" && <div>Nous n'avons pas trouvé d'annonces...</div>}
       {status === "Success" &&
         list.map((add) => (
-          <div key={add.id}>
+          <li key={add.id}>
             <h5>{add.title}</h5>
             <p>{add.content.substring(0, 30)}...</p>
             <a href={`/articles/${add.id}`}>Voir les détails</a>
-          </div>
+          </li>
         ))}
-    </div>
+    </ul>
   );
 }
 
