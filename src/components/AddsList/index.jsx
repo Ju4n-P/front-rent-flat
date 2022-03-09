@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import AOS from "aos";
-import RedirectButton from "../RedirectButton/RedirectButton.index";
+import RedirectButton from "../RedirectButton/";
 
 function AddsList(props) {
   const [status, setStatus] = useState("");
