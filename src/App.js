@@ -1,27 +1,33 @@
-import NavbarOld from "./components/navbar-old/NavbarOld";
+import Layout from "./layout/Layout";
+import NavBar from "./components/navbar/navbar"
 import Home from "./pages/home/Home";
-import Users from "./pages/users/Users";
 import User from "./pages/user/User";
 import Post from "./pages/post/Post"
-import ListOfComponents from "./components/listOfCompnents/ListOfComponents";
+import ListOfComponents from "./compnents/listOfCompnents/ListOfComponents";
 import "./styles/index.scss";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Footer from "./components/footer/Footer"
-
+import { Provider } from 'react-redux';
+import store from './redux/store'
+import Footer from './components/footer/footer'
 
 function App() {
   return (
-    <BrowserRouter>
-      <NavbarOld/>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/users" element={<Users />} />
-            <Route path="/users/:id" element={<User />} />
-            <Route path="/post" element={<Post />} />
-            <Route path="/post/:id" element={<ListOfComponents />} />
-          </Routes>
-      <Footer/>
-    </BrowserRouter>
+    <Provider store={store}>
+      <>
+        <BrowserRouter>
+          <NavBar />
+          <Layout>
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/users/:id" element={<User />} />
+                <Route path="/post" element={<Post />} />
+                <Route path="/post/:id" element={<ListOfComponents />} />
+              </Routes>
+          </Layout>
+          <Footer />
+        </BrowserRouter>
+      </>
+    </Provider>
   );
 }
 
