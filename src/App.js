@@ -6,7 +6,7 @@ import Post from "./pages/post/Post"
 import ListOfComponents from "./components/listOfCompnents/ListOfComponents";
 import "./styles/index.scss";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Footer from "./components/footer/footer"
+import Footer from "./components/footer/Footer"
 
 
 function App() {
