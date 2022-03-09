@@ -17,9 +17,6 @@ const Register = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
-  };
-
-  const registerFetchRequest = () => {
     fetch("https://api-rails-immocoin.herokuapp.com/users", {
       method: "post",
       headers: {
@@ -35,23 +32,16 @@ const Register = () => {
       .then((res) => {
         if (res.ok) {
           Cookies.set('token', res.headers.get("Authorization"));
-          Cookies.set('id', res.headers.get("user.id"));
-          const token2 = Cookies.get('token');
-          console.log("############################################################################################################################");
-          console.log(token2);
-          console.log("############################################################################################################################");
           changeConnectedStatus();
-          console.log("############################################################################################################################");
           // window.location.href = "/"
-          console.dir(res)
           return res.json();
         } else {
           throw new Error(res);
         }
       })
-      .then((json) => console.dir(json))
+      .then((json) => console.log(json.user.id))
       .catch((err) => console.error(err));
-  }
+  };
 
   return (
     <div>
@@ -73,7 +63,7 @@ const Register = () => {
           onChange={e => setPassword(e.target.value)}
         />
         <div className="Button">
-          <Button type="submit" variant="contained" color="primary" onClick={() => registerFetchRequest()}>
+          <Button type="submit" variant="contained" color="primary">
             Register
           </Button>
         </div>

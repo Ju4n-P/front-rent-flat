@@ -2,29 +2,24 @@ import { USER_LOGIN, USER_LOGOUT } from './userTypes';
 import Cookies from 'js-cookie';
 
 const token = Cookies.get('token');
-const id = Cookies.get('id');
 
 const initialState = {
   connected: token ? true : false,
-  token: token,
-  id: id
+  token: token
 };
 
 const isConnectedReducer = (state = initialState, action) => {
   switch(action.type) {
     case USER_LOGIN:
       return {
-        ...state,
         connected: true,
-        token: Cookies.get('token'),
-        id: Cookies.get('id')
+        token: Cookies.get('token')
       };
     case USER_LOGOUT:
+      Cookies.remove('token')
       return {
-        ...state,
         connected: false,
-        token: Cookies.remove('token'),
-        id: Cookies.remove('id')
+        token: null
       };
     default:
       return state;
