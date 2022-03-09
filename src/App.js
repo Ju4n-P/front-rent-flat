@@ -20,7 +20,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/users/:id" element={<User />} />
             <Route path="/register" element={<Register />} />
-            <Route path="/log_in" element={<Login />} />
+            <Route path="/login" element={<Login />} />
             <Route path="/post" element={<Post />} />
           </Routes>
           <Footer />
