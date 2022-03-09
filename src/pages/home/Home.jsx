@@ -1,5 +1,5 @@
 import React from "react";
-import AddsList from "../../compnents/Main/AddsList/";
+import AddsList from "../../compnents/Main/AddsList";
 import "./home.scss";
 // import { useState } from 'react';
 // import Toggle from "../../compnents/toggle/Toggle";
@@ -21,8 +21,10 @@ const Home = () => {
       </div>
 
       <div className="p-12">
-        <h3 className="text-lg">Les dernières annonces en ligne :</h3>
-        <AddsList urlToFetch="http://localhost:3000/articles/" />
+        <h3 className="text-lg font-semibold">
+          Les dernières annonces en ligne :
+        </h3>
+        <AddsList urlToFetch="https://api-rails-immocoin.herokuapp.com/articles" />
       </div>
     </>
   );
