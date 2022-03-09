@@ -1,21 +1,21 @@
-import React, { useState } from 'react';
-import Cookies from 'js-cookie';
-import { userLogin } from '../../redux/stateUser/userAction';
-import { useDispatch } from 'react-redux';
-import TextField from '@mui/material/TextField';
-import Button from '@mui/material/Button';
+import React, { useState } from "react";
+import Cookies from "js-cookie";
+import { userLogin } from "../../redux/stateUser/userAction";
+import { useDispatch } from "react-redux";
+import TextField from "@mui/material/TextField";
+import Button from "@mui/material/Button";
 
 const Register = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const dispatch = useDispatch();
 
-  const changeConnectedStatus = () =>  {
-    dispatch(userLogin())
-  }
+  const changeConnectedStatus = () => {
+    dispatch(userLogin());
+  };
 
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     fetch("https://api-rails-immocoin.herokuapp.com/users", {
       method: "post",
@@ -31,9 +31,9 @@ const Register = () => {
     })
       .then((res) => {
         if (res.ok) {
-          Cookies.set('token', res.headers.get("Authorization"));
+          Cookies.set("token", res.headers.get("Authorization"));
           changeConnectedStatus();
-          // window.location.href = "/"
+          window.location.href = "/";
           return res.json();
         } else {
           throw new Error(res);
@@ -52,7 +52,7 @@ const Register = () => {
           type="email"
           required
           value={email}
-          onChange={e => setEmail(e.target.value)}
+          onChange={(e) => setEmail(e.target.value)}
         />
         <TextField
           label="Password"
@@ -60,7 +60,7 @@ const Register = () => {
           type="password"
           required
           value={password}
-          onChange={e => setPassword(e.target.value)}
+          onChange={(e) => setPassword(e.target.value)}
         />
         <div className="Button">
           <Button type="submit" variant="contained" color="primary">
