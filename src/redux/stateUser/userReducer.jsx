@@ -16,8 +16,8 @@ const isConnectedReducer = (state = initialState, action) => {
       return {
         ...state,
         connected: true,
-        token: action.token,
-        id: action.id
+        token: Cookies.get('token'),
+        id: Cookies.get('id')
       };
     case USER_LOGOUT:
       return {
