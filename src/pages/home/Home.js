@@ -1,8 +1,10 @@
 import React from "react";
-import AddsList from "../../compnents/AddsList";
+import AddsList from "../../components/AddsList";
 import "./home.scss";
 // import { useState } from 'react';
+
 // import Toggle from "../../compnents/toggle/Toggle";
+
 
 const Home = () => {
   return (
