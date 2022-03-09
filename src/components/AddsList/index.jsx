@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import AOS from "aos";
-import Button from "../Button/Button.index";
+import RedirectButton from "../RedirectButton/RedirectButton.index";
 
 function AddsList(props) {
   const [status, setStatus] = useState("");
@@ -53,7 +53,9 @@ function AddsList(props) {
                 <p className="text-xl">{add.price} €</p>
               </div>
             </div>
-            <Button urlToGo={`/articles/${add.id}`}>Voir les détails</Button>
+            <RedirectButton urlToGo={`/articles/${add.id}`}>
+              Voir les détails
+            </RedirectButton>
           </li>
         ))}
     </ul>
