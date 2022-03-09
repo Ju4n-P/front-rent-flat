@@ -1,5 +1,5 @@
 import React from "react";
-import AddsList from "../../compnents/Main/AddsList";
+import AddsList from "../../compnents/AddsList";
 import "./home.scss";
 // import { useState } from 'react';
 // import Toggle from "../../compnents/toggle/Toggle";

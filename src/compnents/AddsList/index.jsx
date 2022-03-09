@@ -1,6 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import AOS from "aos";
+import Button from "../Button/Button.index";
 
 function AddsList(props) {
   const [status, setStatus] = useState("");
@@ -34,19 +35,25 @@ function AddsList(props) {
             data-aos="fade-up"
             data-aos-anchor-placement="top-bottom"
           >
-            <div className="flex p-4">
+            <div className="flex p-4  w-full">
               <div className="w-full">
-                <a className="font-bold" href={`/articles/${add.id}`}>
+                <a
+                  className="font-bold text-[#1976D2]"
+                  href={`/articles/${add.id}`}
+                >
                   {add.title}
                 </a>
                 <p>{add.content.substring(0, 100)}...</p>
+                <small className="text-gray-500">
+                  Date de publication : {add.updated_at}
+                </small>
               </div>
 
               <div className="w-20 flex justify-center">
                 <p className="text-xl">{add.price} €</p>
               </div>
             </div>
-            <a href={`/articles/${add.id}`}>Voir les détails</a>
+            <Button urlToGo={`/articles/${add.id}`}>Voir les détails</Button>
           </li>
         ))}
     </ul>
