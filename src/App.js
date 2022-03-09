@@ -1,6 +1,7 @@
 import NavBar from "./components/navbar";
 import Footer from "./components/footer/Footer";
 import Register from "./components/Register";
+import Login from "./components/Login";
 import Home from "./pages/home/Home";
 import User from "./pages/user/User";
 import Post from "./pages/post/Post";
@@ -19,6 +20,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/users/:id" element={<User />} />
             <Route path="/register" element={<Register />} />
+            <Route path="/log_in" element={<Login />} />
             <Route path="/post" element={<Post />} />
           </Routes>
           <Footer />
