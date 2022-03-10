@@ -4,11 +4,11 @@ export const PRODUCTS = [
   { name: "Easy Content", link: "#" },
 ];
 export const RESOURCES = [
-  { name: "Industries and tools", link: "#" },
-  { name: "Use cases", link: "#" },
-  { name: "Blog", link: "#" },
-  { name: "Online evenet", link: "#" },
-  { name: "Nostrud exercitation", link: "#" },
+  { name: "Lilian Muller", link: "https://github.com/istarengwa" },
+  { name: "Jérémie Deldem", link: "https://github.com/8UK0W5K1/" },
+  { name: "Ophélie Gaudin", link: "https://github.com/ophelie-gaudin" },
+  { name: "Juan Pecan", link: "https://github.com/Ju4n-P" },
+  { name: "Lionel Louis", link: "https://github.com/lionelcoding" },
 ];
 export const COMPANY = [
   { name: "Diversity & inclusion", link: "#" },
@@ -18,10 +18,10 @@ export const COMPANY = [
   { name: "Online communities", link: "#" },
 ];
 export const SUPPORT = [
-  { name: "Documentation", link: "#" },
-  { name: "Tutorials & guides", link: "#" },
-  { name: "Webinars", link: "#" },
-  { name: "Open-source", link: "#" },
+  { name: "Github", link: "https://github.com/Ju4n-P/front-rent-flat/tree/development" },
+  { name: "Tutorials & guides", link: "https://www.youtube.com/channel/UCRQv-3VvPT9mArF5RfrlpKQ" },
+  { name: "API", link: "https://github.com/istarengwa/THP_NEXT_API_PROJECT/tree/development" },
+  { name: "Trello", link: "https://trello.com/b/Mno0C3hn/thp-projet-marketplace" },
 ];
 
 export const Icons = [

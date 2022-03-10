@@ -1,52 +1,73 @@
 import React from "react";
+import { useCallback } from "react";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-export default function AddPage() {
-  const [status, setStatus] = useState(undefined);
-  const [add, setAdd] = useState([]);
+export const useFetch = (
+  endPoint,
+  { defaultState = null, defaultLoading = false } = {}
+  // si objet vide, remettra dedans defaultState, defaultLoading
+) => {
+  const [isLoading, setIsLoading] = useState(defaultLoading);
+  const [result, setResult] = useState(defaultState);
+  const [error, setError] = useState(null);
 
-  const url_id = useParams();
-  const add_id = url_id["id"];
-  // console.log(add_id);
-
-  // useEffect(() => {
-  if (status === undefined) {
-    setStatus("Loading");
-    fetch(`https://api-rails-immocoin.herokuapp.com/articles/${add_id}`, {
+  const doFetch = useCallback(() => {
+    return fetch(`${process.env.REACT_APP_API_URL}${endPoint}`, {
       method: "get",
       headers: {
         "Content-Type": "application/json",
       },
     })
       .then((response) => response.json())
-      .then(setAdd)
-      .then((response) => console.log(response))
-      .then(() => setStatus("Success"))
-      .catch(() => setStatus("Error"));
-    console.log("status", status);
-    console.log("add", add);
+      .then((response) => {
+        setResult(response);
+        console.log("[SUCCESS] useFetch:", response);
+      })
+      .catch((err) => {
+        setError(err);
+        console.log("[ERROR] useFetch: ", err);
+      })
+      .finally(() => setIsLoading(false));
+  }, [endPoint]);
+
+  return [doFetch, { isLoading, result, error }];
+};
+
+export default function AdPage() {
+  const urlParams = useParams();
+  const adId = urlParams.id;
+
+  const [fetchAd, { result: ad, isLoading, error }] = useFetch(
+    `articles/${adId}`,
+    { defaultLoading: true }
+  );
+
+  useEffect(() => {
+    fetchAd();
+  }, []);
+
+  if (isLoading) {
+    return <div>Chargement...</div>;
   }
 
-  // }, []);
-
-  // fetch(`https://api-rails-immocoin.herokuapp.com/articles/${add_id}`)
-  //   .then((response) => response.json())
-  //   .then((res) => setAdd(res))
-  //   .then(console.log(add))
-  //   .then(() => setStatus("Success"))
-  //   .catch(() => setStatus("Error"));
-
+  if (error) {
+    return (
+      <div>
+        Une erreur est survenue
+        <pre>{error.message}</pre>
+      </div>
+    );
+  }
   return (
-    // <div className="flex flex-col m-12 p-8">
-    //   <h2>
-    //     <span className="font-bold text-lg">Annonce :</span> {add.title}
-    //   </h2>
-    //   <p>{add.content}</p>
-    //   <br />
-    //   <p>{add.price}</p>
-    //   <p>Envoyez un mail à l'adresse suivante : {add.user_id.email}</p>
-    // </div>
-    <div>Blabla</div>
+    <div className="flex flex-col m-12 p-8">
+      <h2>
+        <span className="font-bold text-lg">Annonce :</span> {ad.title}
+      </h2>
+      <p>{ad.content}</p>
+      <br />
+      <p>{ad.price}</p>
+      <p>Envoyez un mail à l'adresse suivante : {ad.userEmail}</p>
+    </div>
   );
 }

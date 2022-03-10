@@ -17,7 +17,7 @@ const Register = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch("https://api-rails-immocoin.herokuapp.com/users", {
+    fetch(`${process.env.REACT_APP_API_URL}users`, {
       method: "post",
       headers: {
         "Content-Type": "application/json",
