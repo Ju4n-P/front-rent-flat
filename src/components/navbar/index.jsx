@@ -96,6 +96,9 @@ export default function Navbar() {
                     <Link to="/profile">My account</Link>
                   </MenuItem>
                   <MenuItem onClick={handleClose}>
+                    <Link to="/new_announce">Post Announce</Link>
+                  </MenuItem>
+                  <MenuItem onClick={handleClose}>
                     <Logout>Logout</Logout>
                   </MenuItem>
                 </Menu>

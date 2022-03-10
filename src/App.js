@@ -9,6 +9,7 @@ import "./styles/index.scss";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./redux/store";
+import Announce from "./pages/announce/Announce";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
             <Route path="/users/:id" element={<User />} />
             <Route path="/register" element={<Register />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/new_announce" element={<Announce />} />
             <Route path="/post" element={<Post />} />
           </Routes>
           <Footer />
