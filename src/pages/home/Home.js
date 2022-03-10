@@ -12,7 +12,7 @@ const Home = () => {
       <div className="hero-section flex flex-col items-center p-16">
         <div className="flex flex-col items-center w-[70%] bg-black/70 p-12">
           <h1 className="text-3xl text-white text-center">
-            <span className="font-bold text-4xl">Bienvenue sur ImmoFind,</span>{" "}
+            <span className="font-bold text-4xl">Bienvenue sur ImmoCoin,</span>{" "}
             <br />
             le meilleur outil de prise de contact de particulier à particulier
             pour louer votre appartement !{" "}
