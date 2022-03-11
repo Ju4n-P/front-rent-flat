@@ -93,7 +93,10 @@ export default function Navbar() {
                   onClose={handleClose}
                 >
                   <MenuItem onClick={handleClose}>
-                    <Link to="/profile">My account</Link>
+                    <Link to="/profile">Mon compte</Link>
+                  </MenuItem>
+                  <MenuItem onClick={handleClose}>
+                    <Link to="/annonces">Mes annonces</Link>
                   </MenuItem>
                   <MenuItem onClick={handleClose}>
                     <Logout>Logout</Logout>
