@@ -1,10 +1,8 @@
 import React from "react";
 import AddsList from "../../components/AddsList";
 import "./home.scss";
-// import { useState } from 'react';
-
+import { CreateArticleForm } from "../../components/CreateArticleForm";
 // import Toggle from "../../compnents/toggle/Toggle";
-
 
 const Home = () => {
   return (
@@ -26,7 +24,9 @@ const Home = () => {
         <h3 className="text-lg font-semibold">
           Les dernières annonces en ligne :
         </h3>
-        <AddsList urlToFetch="https://api-rails-immocoin.herokuapp.com/articles/" />
+        <AddsList urlToFetch={`${process.env.REACT_APP_API_URL}articles/`} />
+
+        <CreateArticleForm />
       </div>
     </>
   );
