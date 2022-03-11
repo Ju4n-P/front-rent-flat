@@ -13,7 +13,7 @@ export const useFetch = (
   const [error, setError] = useState(null);
 
   const doFetch = useCallback(() => {
-    return fetch(`${process.env.REACT_APP_API_URL}${endPoint}`, {
+    return fetch(`https://api-rails-immocoin.herokuapp.com/${endPoint}`, {
       method: "get",
       headers: {
         "Content-Type": "application/json",
@@ -64,10 +64,10 @@ export default function AdPage() {
       <h2>
         <span className="font-bold text-lg">Annonce :</span> {ad.title}
       </h2>
-      <p>{ad.content}</p>
+      <p><span className="font-bold text-lg">Description :</span> {ad.content}</p>
       <br />
-      <p>{ad.price}</p>
-      <p>Envoyez un mail à l'adresse suivante : {ad.userEmail}</p>
+      <p><span className="font-bold text-lg">Prix :</span> {ad.price} €</p>
+      <p>Envoyez un mail à l'adresse suivante : {ad.useremail}</p>
     </div>
   );
 }
