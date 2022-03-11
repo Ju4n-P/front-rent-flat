@@ -2,6 +2,7 @@ import React from "react";
 import { useCallback } from "react";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 export const useFetch = (
   endPoint,
@@ -38,6 +39,8 @@ export default function AdPage() {
   const urlParams = useParams();
   const adId = urlParams.id;
 
+  const auth = useSelector((state) => state.connected);
+
   const [fetchAd, { result: ad, isLoading, error }] = useFetch(
     `articles/${adId}`,
     { defaultLoading: true }
@@ -67,7 +70,12 @@ export default function AdPage() {
       <p><span className="font-bold text-lg">Description :</span> {ad.content}</p>
       <br />
       <p><span className="font-bold text-lg">Prix :</span> {ad.price} €</p>
-      <p>Envoyez un mail à l'adresse suivante : {ad.useremail}</p>
+      {auth.connected && (
+        <p>Envoyez un mail à l'adresse suivante : {ad.useremail}</p>
+      )}
+      {!auth.connected && (
+        <p>Pour voir l'adresse mail merci de vous inscrire <a href="http://localhost:3000/register">ici</a></p>
+      )}
     </div>
   );
 }

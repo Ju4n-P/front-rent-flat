@@ -2,7 +2,6 @@ import React from "react";
 import AddsList from "../../components/AddsList";
 import "./home.scss";
 import { CreateArticleForm } from "../../components/CreateArticleForm";
-// import Toggle from "../../compnents/toggle/Toggle";
 import { useSelector } from "react-redux";
 
 const Home = () => {
