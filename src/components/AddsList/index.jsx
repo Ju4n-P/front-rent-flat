@@ -53,7 +53,7 @@ function AddsList(props) {
                 <p className="text-xl">{add.price} €</p>
               </div>
             </div>
-            <RedirectButton urlToGo={`/articles/${add.id}`}>
+            <RedirectButton urlToGo={`articles/${add.id}`}>
               Voir les détails
             </RedirectButton>
           </li>

@@ -1,0 +1,81 @@
+import React from "react";
+import { useCallback } from "react";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
+
+export const useFetch = (
+  endPoint,
+  { defaultState = null, defaultLoading = false } = {}
+  // si objet vide, remettra dedans defaultState, defaultLoading
+) => {
+  const [isLoading, setIsLoading] = useState(defaultLoading);
+  const [result, setResult] = useState(defaultState);
+  const [error, setError] = useState(null);
+
+  const doFetch = useCallback(() => {
+    return fetch(`https://api-rails-immocoin.herokuapp.com/${endPoint}`, {
+      method: "get",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => response.json())
+      .then((response) => {
+        setResult(response);
+        console.log("[SUCCESS] useFetch:", response);
+      })
+      .catch((err) => {
+        setError(err);
+        console.log("[ERROR] useFetch: ", err);
+      })
+      .finally(() => setIsLoading(false));
+  }, [endPoint]);
+
+  return [doFetch, { isLoading, result, error }];
+};
+
+export default function AdPage() {
+  const urlParams = useParams();
+  const adId = urlParams.id;
+
+  const auth = useSelector((state) => state.connected);
+
+  const [fetchAd, { result: ad, isLoading, error }] = useFetch(
+    `articles/${adId}`,
+    { defaultLoading: true }
+  );
+
+  useEffect(() => {
+    fetchAd();
+  }, []);
+
+  if (isLoading) {
+    return <div>Chargement...</div>;
+  }
+
+  if (error) {
+    return (
+      <div>
+        Une erreur est survenue
+        <pre>{error.message}</pre>
+      </div>
+    );
+  }
+  return (
+    <div className="flex flex-col m-12 p-8">
+      <h2>
+        <span className="font-bold text-lg">Annonce :</span> {ad.title}
+      </h2>
+      <p><span className="font-bold text-lg">Description :</span> {ad.content}</p>
+      <br />
+      <p><span className="font-bold text-lg">Prix :</span> {ad.price} €</p>
+      {auth.connected && (
+        <p>Envoyez un mail à l'adresse suivante : {ad.useremail}</p>
+      )}
+      {!auth.connected && (
+        <p>Pour voir l'adresse mail merci de vous inscrire <a href="http://localhost:3000/register">ici</a></p>
+      )}
+    </div>
+  );
+}
