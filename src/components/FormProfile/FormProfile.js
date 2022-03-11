@@ -33,7 +33,7 @@ const FormProfile = () => {
             <input type="text" id="email" 
               placeholder={currentUser.email}
             ></input>
-            <button>Valider</button>
+            <button>Modification Email</button>
           </form>
         </div>
     );
