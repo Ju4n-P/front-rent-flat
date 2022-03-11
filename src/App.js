@@ -4,7 +4,6 @@ import Register from "./components/Register";
 import Login from "./components/Login";
 import Home from "./pages/home/Home";
 import User from "./pages/user/User";
-import Post from "./pages/post/Post";
 import "./styles/index.scss";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Provider } from "react-redux";
@@ -22,7 +21,6 @@ function App() {
             <Route path="/users/:id" element={<User />} />
             <Route path="/register" element={<Register />} />
             <Route path="/login" element={<Login />} />
-            <Route path="/post" element={<Post />} />
             <Route path="/articles/:id" element={<AddPage />} />
           </Routes>
           <Footer />
