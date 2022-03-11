@@ -1,5 +1,7 @@
 import React, { useCallback, useState } from "react";
 import Cookies from "js-cookie";
+import TextField from "@mui/material/TextField";
+import Button from "@mui/material/Button";
 
 // const token = Cookies.get("token");
 
@@ -14,7 +16,7 @@ export const usePost = (
 
   const doFetch = useCallback(
     (body) => {
-      return fetch(`${process.env.REACT_APP_API_URL}${endPoint}`, {
+      return fetch(`https://api-rails-immocoin.herokuapp.com/articles`, {
         method: "post",
         headers: {
           "Content-Type": "application/json",
@@ -68,38 +70,38 @@ export const CreateArticleForm = () => {
           <pre>{error.message}</pre>
         </div>
       )}
-      <form onSubmit={handleSubmit}>
-        <label>
-          <input
-            placeholder="Titre"
-            type="text"
-            name="title"
-            onChange={(e) => setTitle(e.target.value)}
-            disabled={isLoading}
-          />
-        </label>
-        <label>
-          <input
-            placeholder="Description"
-            type="text"
-            name="content"
-            onChange={(e) => setContent(e.target.value)}
-            disabled={isLoading}
-          />
-        </label>
-        <label>
-          <input
-            type="number"
-            step="0.01"
-            min="0"
-            name="price"
-            onChange={(e) => setPrice(e.target.value)}
-            disabled={isLoading}
-          />
-        </label>
-        <button type="submit" disabled={isLoading}>
-          Créer
-        </button>
+      <form action="post" className="Form" onSubmit={handleSubmit}>
+        <TextField
+          label="Titre"
+          variant="filled"
+          type="text"
+          required
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+        />
+        <TextField
+          label="Description"
+          variant="filled"
+          type="text"
+          required
+          value={content}
+          onChange={(e) => setContent(e.target.value)}
+          disabled={isLoading}
+        />
+        <TextField
+          label="Prix"
+          variant="filled"
+          type="number"
+          required
+          value={price}
+          onChange={(e) => setPrice(e.target.value)}
+          disabled={isLoading}
+        />
+        <div className="Button">
+          <Button type="submit" disabled={isLoading}>
+            Créer
+          </Button>
+        </div>
       </form>
     </div>
   );
