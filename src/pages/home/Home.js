@@ -3,7 +3,7 @@ import AddsList from "../../components/AddsList";
 import "./home.scss";
 import { CreateArticleForm } from "../../components/CreateArticleForm";
 import { useSelector } from "react-redux";
-
+import FetchApi from "../../services/FlatsApi";
 const Home = () => {
 
   const auth = useSelector((state) => state.connected);
@@ -32,6 +32,7 @@ const Home = () => {
             </h3>
             
             <CreateArticleForm />
+            {/* <FetchApi/> */}
           </>
         )}
         
