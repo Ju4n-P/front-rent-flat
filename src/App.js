@@ -10,6 +10,7 @@ import "./styles/index.scss";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./redux/store";
+import AddPage from "./pages/AddPage/AddPage";
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/post" element={<Post />} />
             <Route path="/profile" element={<Profile />} />
+            <Route path="/articles/:id" element={<AddPage />} />
           </Routes>
           <Footer />
         </BrowserRouter>

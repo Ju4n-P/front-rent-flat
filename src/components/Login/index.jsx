@@ -17,7 +17,7 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch("https://api-rails-immocoin.herokuapp.com/users/sign_in", {
+    fetch(`https://api-rails-immocoin.herokuapp.com/users/sign_in`, {
       method: "post",
       headers: {
         "Content-Type": "application/json",
